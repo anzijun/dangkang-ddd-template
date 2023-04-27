@@ -5,9 +5,11 @@ import com.dangkang.examplecontext.domain.model.DomainObject;
 import java.util.Map;
 
 /**
+ * 资源库（Repository）
+ * 1.一个聚合一个Repository
  * @date 2022/12/23 10:23
  */
-public interface DomainObjectRepository {
+public interface ExampleAggregateRootRepository {
 
     String ERR_DOMAINOBJECT_NOT_FOUND_CODE="R001";
     String ERR_DOMAINOBJECT_NOT_FOUND_MESSAGE="未查询到领域对象";

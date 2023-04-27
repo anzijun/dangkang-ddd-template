@@ -8,13 +8,14 @@ import org.springframework.stereotype.Component;
 
 
 /**
- * 业务领域规则对象:复杂业务规则的封装
+ * 领域服务（业务规则）
+ * 1.业务规则通常可能在多个应用服务中重用，将业务规则封装为领域服务，以*Check命名
  * @date 2022/12/23 13:53
  */
 @Component
-public class DomainLogicalCheck {
+public class DomainBusinessRuleCheck {
 
-    private static final Logger logger = LoggerFactory.getLogger(DomainLogicalCheck.class);
+    private static final Logger logger = LoggerFactory.getLogger(DomainBusinessRuleCheck.class);
     private static final String ERR_DOMAINLOGICRULE_CODE="V002";
     private static final String ERR_DOMAINLOGICRULE_MESSAGE="领域规则校验出错提示";
 

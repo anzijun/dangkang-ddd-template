@@ -1,7 +1,9 @@
 package com.dangkang.examplecontext.app.ability.service;
 
+import com.dangkang.examplecontext.domain.facade.ExternalAccessFacade;
 import com.dangkang.examplecontext.domain.model.DomainObject;
-import com.dangkang.examplecontext.domain.repository.DomainObjectRepository;
+import com.dangkang.examplecontext.domain.repository.ExampleAggregateRootRepository;
+import com.dangkang.examplecontext.infrastructure.converter.ExampleContextConverter;
 import com.dangkang.exception.DangKangAppException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,7 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
- * 领域服务实现逻辑
+ * 领域服务
+ * 1.协调聚合之间以及聚合与第三方访问（ACL）
+ * 2. 在多个应用服务中具有重用
  * @date 2022/12/23 11:29
  */
 @Component
@@ -20,16 +24,22 @@ public class DomainService {
     private static final Logger logger = LoggerFactory.getLogger(DomainService.class);
 
     @Autowired
-    private DomainObjectRepository domainObjectRepository;
+    private ExampleAggregateRootRepository domainObjectRepository;
+
+    @Autowired
+    private ExternalAccessFacade externalAccessFacade;
 
     public void doService(DomainObject domainObject) {
-        //todo 封装多个聚合协作并具有一定重用性的功能，可能会在多个applicationService之间重用。
+
         domainObject.toDo();
         //领域服务抛出异常示例
         if("domainService@email.com".equals(domainObject.getEmail())){
             throw new DangKangAppException().setErrorCode(ERR_DOMAIN_SERVICE_CODE)
                                             .setPromptMessage(ERR_DOMAIN_SERVICE_MESSAGE);
         }
+        // 3.3 调用第三方接口
+        externalAccessFacade.call(ExampleContextConverter.INSTANCE.toCallRequestDto(domainObject));
+        logger.info("externalAccessFacade.call执行成功,客户号是[{}]",domainObject.getEmail());
     }
 
     public DomainObject findAndCheckEmpty(String phoneNumber) {

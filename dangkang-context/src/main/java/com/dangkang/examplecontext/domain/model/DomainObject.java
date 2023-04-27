@@ -1,6 +1,7 @@
 package com.dangkang.examplecontext.domain.model;
 
 /**
+ * 领域对象
  * @date 2022/12/23 10:22
  */
 public class DomainObject {

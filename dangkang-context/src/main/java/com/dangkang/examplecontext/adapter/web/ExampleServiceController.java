@@ -16,6 +16,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * 适配器（adapter）
+ * 负责协议和消息转换
+ */
 @RestController
 public class ExampleServiceController {
 

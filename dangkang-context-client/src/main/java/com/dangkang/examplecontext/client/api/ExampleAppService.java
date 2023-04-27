@@ -5,7 +5,7 @@ import com.dangkang.examplecontext.client.dto.request.ExampleServiceRequestDTO;
 import com.dangkang.examplecontext.client.dto.response.ExampleServiceResultDTO;
 
 /**
- * 应用服务
+ * 面向客户端调用，client sdk
  */
 public interface ExampleAppService {
     String SERVICE_CODE ="T001";

@@ -3,7 +3,7 @@ package com.dangkang.examplecontext.domain.facade;
 /**
  * @date 2022/12/30 13:57
  */
-public class CallRequestDto<T> {
+public class CallRequest<T> {
 
     private String email;
     private String phoneNumber;
@@ -14,7 +14,7 @@ public class CallRequestDto<T> {
         return email;
     }
 
-    public CallRequestDto setEmail(String email) {
+    public CallRequest setEmail(String email) {
         this.email = email;
         return this;
     }
@@ -23,7 +23,7 @@ public class CallRequestDto<T> {
         return phoneNumber;
     }
 
-    public CallRequestDto setPhoneNumber(String phoneNumber) {
+    public CallRequest setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
         return this;
     }

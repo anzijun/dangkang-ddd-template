@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
+ * 防腐层实现，可以用Adapter设计模式
  * @date 2022/12/19 14:47
  */
 @Component
@@ -23,7 +24,7 @@ public class ExternalAccessFacadeImpl implements ExternalAccessFacade {
     private ExternalConfig externalConfig;
 
     @Override
-    public CallResult call(CallRequestDto callRequestDto) {
+    public CallResult call(CallRequest callRequestDto) {
         CallResult result = new CallResult();
         String url = String.format(externalConfig.getUrl(),externalConfig.getCallServiceName());
         ExternalClient externalClient = new ExternalClient(url,externalConfig.getConnectionTimeoutForCallService() ,externalConfig.getReadTimeoutForCallService());
@@ -45,7 +46,7 @@ public class ExternalAccessFacadeImpl implements ExternalAccessFacade {
             logger.error("第三方接口external.toCall调用失败",e);
             //读超时异常时，发起toCall方法执行结果的查询服务query
             if(NetErrorManager.isReadTimeout(e)){
-                QueryRequestDto queryRequestDto = getQueryRequestDto();//查询请求所需要的数据
+                com.dangkang.examplecontext.domain.facade.QueryRequest queryRequestDto = getQueryRequestDto();//查询请求所需要的数据
                 QueryResult queryResult = queryResult = query(queryRequestDto);
                 return convert(queryResult);//如果查询toCall执行结果能成功返回，以此次查询结果为准
             }
@@ -61,7 +62,7 @@ public class ExternalAccessFacadeImpl implements ExternalAccessFacade {
         return result;
     }
 
-    public QueryResult query(QueryRequestDto queryRequestDto){
+    public QueryResult query(com.dangkang.examplecontext.domain.facade.QueryRequest queryRequestDto){
         QueryResult result = new QueryResult();
         String url = String.format(externalConfig.getUrl(),externalConfig.getQueryServiceName()) ;
         QueryClient client = new QueryClient(url,externalConfig.getConnectionTimeoutForQueryService(),externalConfig.getReadTimeoutForQueryService());
@@ -87,9 +88,9 @@ public class ExternalAccessFacadeImpl implements ExternalAccessFacade {
         return result;
     }
 
-    private QueryRequestDto getQueryRequestDto(){
+    private com.dangkang.examplecontext.domain.facade.QueryRequest getQueryRequestDto(){
         //todo 由上下文生成查询call执行结果的请求数据
-        return new QueryRequestDto();
+        return new com.dangkang.examplecontext.domain.facade.QueryRequest();
     }
 
     private CallResult convert(QueryResult queryResult){

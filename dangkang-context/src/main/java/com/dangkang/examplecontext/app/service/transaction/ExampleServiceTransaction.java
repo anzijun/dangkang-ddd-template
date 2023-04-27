@@ -1,23 +1,23 @@
 package com.dangkang.examplecontext.app.service.transaction;
 
 import com.dangkang.examplecontext.domain.model.DomainObject;
-import com.dangkang.examplecontext.domain.repository.DomainObjectRepository;
+import com.dangkang.examplecontext.domain.repository.ExampleAggregateRootRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
+ * 领域服务（事务）
+ * 将应用服务中带事务的处理逻辑封装为一个领域服务，使事务边界尽可能小
  * @date 2022/12/19 14:14
  */
 @Component
 public class ExampleServiceTransaction {
 
-
     @Autowired
-    private DomainObjectRepository domainObjectRepository;
+    private ExampleAggregateRootRepository domainObjectRepository;
 
     /**
-     * 如果第三方externalAccessFacade抛出BizException(RuntimeException)则如下数据存储操作回滚
      * @param domainObject
      */
     @Transactional
