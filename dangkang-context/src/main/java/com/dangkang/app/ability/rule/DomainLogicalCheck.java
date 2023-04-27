@@ -25,7 +25,6 @@ public class DomainLogicalCheck {
     public void check(DomainObject domainObject) {
 
         //todo 领域校验逻辑执行
-        logger.info("领域校验逻辑执行");
         //业务规则校验示例 实际业务规则应是有关多个领域对象的属性或复杂规则验证
         if("domainrule@email.com".equals(domainObject.getEmail())){
             throw new ValidationException().setErrorCode(ERR_DOMAINLOGICRULE_CODE)

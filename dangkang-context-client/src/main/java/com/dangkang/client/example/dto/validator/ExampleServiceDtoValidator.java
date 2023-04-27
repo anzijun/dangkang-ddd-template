@@ -8,7 +8,7 @@ import com.dangkang.client.example.dto.request.ExampleServiceRequestDTO;
 /**
  * 入参校验器示例
  */
-public class ApplicationServiceDtoValidator extends ValidatorHandler<ExampleServiceRequestDTO> implements Validator<ExampleServiceRequestDTO> {
+public class ExampleServiceDtoValidator extends ValidatorHandler<ExampleServiceRequestDTO> implements Validator<ExampleServiceRequestDTO> {
 
     @Override
     public boolean validate(ValidatorContext context, ExampleServiceRequestDTO exampleServiceRequestDTO) {

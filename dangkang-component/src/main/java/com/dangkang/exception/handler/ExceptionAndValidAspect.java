@@ -70,28 +70,28 @@ public class ExceptionAndValidAspect {
            response = new MultipleResponse<>();
        }
 
-        String SERVICE_CODE = "";
-        String SERVICE_NAME = "";
+        String serviceCode = "";
+        String serviceName = "";
+
         ServiceDesc serviceDesc = targetMethod.getAnnotation(ServiceDesc.class);
         if(serviceDesc != null){
-            SERVICE_CODE = serviceDesc.ServiceCode();
-            SERVICE_NAME = serviceDesc.ServiceName();
+            serviceCode = serviceDesc.ServiceCode();
+            serviceName = serviceDesc.ServiceName();
         }
 
        if (t instanceof DangKangAppException) {
            //处理应用异常
            DangKangAppException ae = (DangKangAppException) t;
            if (t.getCause() != null) {
-               //应用异常是自定义或转换为ApplicationException，系统异常会内嵌在ApplicationException中
-               logger.error(ae.getDetailMessage(), t); //系统环境出错
-
+               //应用异常是自定义或转换为DangKangAppException，系统异常会内嵌在DangKangAppException中
+               logger.error(ae.getDetailMessage(), t); //系统异常error，打印出错详细信息和堆栈
            } else {
-               logger.warn(ae.getPromptMessage());//业务异常warn
+               logger.warn(ae.getPromptMessage());//业务异常warn，不打印堆栈
            }
-           response.buildFailure(SERVICE_CODE, SERVICE_NAME, ae.getErrorCode(), ae.getPromptMessage());
+           response.buildFailure(serviceCode, serviceName, ae.getErrorCode(), ae.getPromptMessage());
        } else {
            //未捕获的其他异常
-           response.buildUnknownFailure(SERVICE_CODE, SERVICE_NAME, t.getMessage());
+           response.buildUnknownFailure(serviceCode, serviceName, t.getMessage());
        }
        return response;
     }

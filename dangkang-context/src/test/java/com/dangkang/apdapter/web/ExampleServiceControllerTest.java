@@ -3,13 +3,14 @@ package com.dangkang.apdapter.web;
 
 import com.dangkang.adapter.web.ExampleServiceController;
 import com.dangkang.client.example.dto.request.ExampleServiceRequestDTO;
+import com.dangkang.exception.ValidationException;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import javax.xml.ws.soap.Addressing;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -26,11 +27,12 @@ public class ExampleServiceControllerTest {
         exampleServiceController.execute(exampleServiceRequestDTO);
     }
 
-    @Test
+    @Test()
     public void executeShouldFailTest(){
         ExampleServiceRequestDTO exampleServiceRequestDTO = new ExampleServiceRequestDTO();
         exampleServiceRequestDTO.setEmail("");
         exampleServiceRequestDTO.setPhoneNumber("1760040580");
         exampleServiceController.execute(exampleServiceRequestDTO);
     }
+
 }

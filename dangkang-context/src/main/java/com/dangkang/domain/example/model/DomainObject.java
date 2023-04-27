@@ -28,15 +28,17 @@ public class DomainObject {
         return email;
     }
 
-    public void setEmail(String email) {
+    public DomainObject setEmail(String email) {
         this.email = email;
+        return this;
     }
 
     public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
+    public DomainObject setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+        return this;
     }
 }

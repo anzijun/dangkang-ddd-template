@@ -23,9 +23,8 @@ public class DomainService {
     private DomainObjectRepository domainObjectRepository;
 
     public void doService(DomainObject domainObject) {
-        //todo 封装多个领域对象协作并具有一定重用性的功能，可能会在多个applicationService之间重用。
+        //todo 封装多个聚合协作并具有一定重用性的功能，可能会在多个applicationService之间重用。
         domainObject.toDo();
-        logger.info("DomainObject.toDo领域逻辑执行成功");
         //领域服务抛出异常示例
         if("domainService@email.com".equals(domainObject.getEmail())){
             throw new DangKangAppException().setErrorCode(ERR_DOMAIN_SERVICE_CODE)

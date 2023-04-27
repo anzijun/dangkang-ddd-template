@@ -1,6 +1,7 @@
 package com.dangkang.app.service;
 
 import com.baidu.unbiz.fluentvalidator.annotation.FluentValid;
+import com.dangkang.app.ability.factory.DomainObjectFactory;
 import com.dangkang.app.ability.rule.DomainLogicalCheck;
 import com.dangkang.app.ability.service.DomainService;
 import com.dangkang.app.service.transaction.ExampleServiceTransaction;
@@ -31,22 +32,22 @@ public class ExampleAppServiceImpl implements ExampleAppService {
     @Autowired
     private DomainLogicalCheck domainLogicalCheck;
     @Autowired
+    private DomainObjectFactory domanObjectFactory;
+    @Autowired
     private ExampleServiceTransaction exampleServiceTransaction;
     @Autowired
     private ExternalAccessFacade externalAccessFacade;
 
+    // 1 使用@ExceptionAndValid和@FluentValid注解进行异常统一处理和输入参数校验
     @ExceptionAndValid
-    @ServiceDesc(ServiceCode = "T001",ServiceName = "当康应用服务")
+    @ServiceDesc(ServiceCode = "T001",ServiceName = "DDD应用服务")
     public Response<ExampleServiceResultDTO> execute(@FluentValid(isFailFast=false) ExampleServiceRequestDTO exampleServiceRequestDTO) {
-
         Response<ExampleServiceResultDTO> response = new Response<>();
         ExampleServiceResultDTO exampleServiceResultDTO = new ExampleServiceResultDTO();
             //todo 业务逻辑编排
-            // 1 使用@FluentValid注解进行输入参数校验 (应用Fluent-Validator + Hibernate-Validator )
-
 
             // 2.1 调用领域内提供的查询服务(ddd Repository)
-            DomainObject domainObject = domainService.findAndCheckEmpty(exampleServiceRequestDTO.getPhoneNumber());
+            DomainObject domainObject = domanObjectFactory.initDomainObject(exampleServiceRequestDTO);
             // 2.2 业务规则验证逻辑(ddd 业务规则封装)
             domainLogicalCheck.check(domainObject);
             logger.info("DomainLogicalRule.check领域逻辑规则校验成功,客户号是[{}]",exampleServiceRequestDTO.getEmail());
@@ -67,5 +68,4 @@ public class ExampleAppServiceImpl implements ExampleAppService {
             logger.info("exampleAppService.execute执行成功,客户号是[{}]",exampleServiceRequestDTO.getEmail());
         return response;
     }
-
 }
