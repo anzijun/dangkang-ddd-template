@@ -18,6 +18,7 @@ com\dangkang\exception\DangKangAppException.class
 com\dangkang\log\logmasking\annotation\NotNull.class
 com\dangkang\log\logmasking\datamasking\strategy\NameMask.class
 com\dangkang\exception\net\strategy\NetErrorStrategy.class
+com\dangkang\exception\handler\FluentValidatorConfiguration.class
 com\dangkang\log\logmasking\util\HashUtil$1.class
 com\dangkang\exception\handler\ExceptionAndValidAspect.class
 com\dangkang\exception\DataBaseException.class
@@ -37,3 +38,4 @@ com\dangkang\log\logmasking\util\HashUtil.class
 com\dangkang\application\dto\response\Response.class
 com\dangkang\exception\net\NetErrorManager.class
 com\dangkang\log\logmasking\datamasking\Sensitive.class
+com\dangkang\exception\handler\FluentValidateCallBack.class

@@ -1,7 +1,7 @@
-F:\idea_workspace\ddd-demo\dangkang-ddd-template\dangkang-context-client\src\main\java\com\dangkang\client\example\api\ExampleAppService.java
-F:\idea_workspace\ddd-demo\dangkang-ddd-template\dangkang-context-client\src\main\java\com\dangkang\client\example\dto\response\ApplicationServiceResultDTO.java
-F:\idea_workspace\ddd-demo\dangkang-ddd-template\dangkang-context-client\src\main\java\com\dangkang\client\example\dto\request\ApplicationServiceRequestDTO.java
-F:\idea_workspace\ddd-demo\dangkang-ddd-template\dangkang-context-client\src\main\java\com\dangkang\client\example\dto\response\QueryResultDTO.java
-F:\idea_workspace\ddd-demo\dangkang-ddd-template\dangkang-context-client\src\main\java\com\dangkang\client\example\dto\validator\ApplicationServiceDtoValidator.java
-F:\idea_workspace\ddd-demo\dangkang-ddd-template\dangkang-context-client\src\main\java\com\dangkang\client\example\dto\request\ApplicationQueryRequestDTO.java
-F:\idea_workspace\ddd-demo\dangkang-ddd-template\dangkang-context-client\src\main\java\com\dangkang\client\example\api\ExampleAppQueryService.java
+D:\dangkang-ddd-template\dangkang-context-client\src\main\java\com\dangkang\examplecontext\client\api\ExampleAppService.java
+D:\dangkang-ddd-template\dangkang-context-client\src\main\java\com\dangkang\examplecontext\client\api\ExampleAppQueryService.java
+D:\dangkang-ddd-template\dangkang-context-client\src\main\java\com\dangkang\examplecontext\client\dto\response\ExampleServiceResultDTO.java
+D:\dangkang-ddd-template\dangkang-context-client\src\main\java\com\dangkang\examplecontext\client\dto\request\ExampleQueryRequestDTO.java
+D:\dangkang-ddd-template\dangkang-context-client\src\main\java\com\dangkang\examplecontext\client\dto\request\ExampleServiceRequestDTO.java
+D:\dangkang-ddd-template\dangkang-context-client\src\main\java\com\dangkang\examplecontext\client\dto\validator\ExampleServiceDtoValidator.java
+D:\dangkang-ddd-template\dangkang-context-client\src\main\java\com\dangkang\examplecontext\client\dto\response\ExampleQueryResultDTO.java
