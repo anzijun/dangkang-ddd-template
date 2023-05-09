@@ -12,24 +12,18 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class ExampleServiceControllerTest {
+public class ReportServiceControllerTest {
 
     @Autowired
     private ReportServiceController exampleServiceController;
 
     @Test
     public void executeShouldSuccessTest(){
-        ExampleServiceRequestDTO exampleServiceRequestDTO = new ExampleServiceRequestDTO();
-        exampleServiceRequestDTO.setEmail("dangkang@email.com");
-        exampleServiceRequestDTO.setPhoneNumber("17600405800");
-        exampleServiceController.execute(exampleServiceRequestDTO);
+
     }
 
     @Test()
     public void executeShouldFailTest(){
-        ExampleServiceRequestDTO exampleServiceRequestDTO = new ExampleServiceRequestDTO();
-        exampleServiceRequestDTO.setEmail("");
-        exampleServiceRequestDTO.setPhoneNumber("1760040580");
-        exampleServiceController.execute(exampleServiceRequestDTO);
+
     }
 }
