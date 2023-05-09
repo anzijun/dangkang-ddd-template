@@ -12,6 +12,7 @@
         <module>dangkang-component</module>
         <module>dangkang-context-client</module>
         <module>dangkang-context</module>
+        <module>dangkang-report</module>
     </modules>
 
     <properties>
@@ -95,12 +96,29 @@
             <version>2.4.1</version>
             <scope>test</scope>
         </dependency>
+        <!--
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
+      -->
+        <dependency>
+            <groupId>org.junit</groupId>
+            <artifactId>junit-bom</artifactId>
+            <version>5.7.0</version>
+            <type>pom</type>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-params</artifactId>
+            <version>5.2.0</version>
+            <scope>test</scope>
+        </dependency>
+
 
         <dependency>
             <groupId>com.alibaba</groupId>
@@ -122,6 +140,20 @@
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>18.0</version>
+        </dependency>
+
+        <!--假数据生成有关框架-->
+        <dependency>
+            <groupId>com.apifan.common</groupId>
+            <artifactId>common-random</artifactId>
+            <version>1.0.19</version>
+        </dependency>
+
+        <!--apache.commons for ftp-->
+        <dependency>
+            <groupId>commons-net</groupId>
+            <artifactId>commons-net</artifactId>
+            <version>3.6</version>
         </dependency>
         <!-- 开发工具：修改java代码无须重新运行 -->
         <dependency>

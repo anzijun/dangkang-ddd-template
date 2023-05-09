@@ -10,9 +10,9 @@ import java.lang.annotation.*;
 @Inherited
 public @interface ServiceDesc {
 
-    String ApplicationCode() default "";
+    String applicationCode() default "";
 
-    String ApplicationName() default "dangkang";
+    String applicationName() default "dangkang";
 
     String ServiceCode() default "";
 

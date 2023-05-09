@@ -1,8 +1,12 @@
 package com.dangkang.application.dto.response;
 
+import com.dangkang.application.annotation.ServiceDesc;
 import com.dangkang.exception.DangKangAppException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.lang.reflect.Method;
+import java.util.Optional;
 
 /**
  * 定义applicationService的返回结果
@@ -12,8 +16,8 @@ public class AbstractResponse {
 
     private static final Logger logger = LoggerFactory.getLogger(AbstractResponse.class);
 
-    public static final String SYSTEM_CODE="A01";
-    public static final String SYSTEM_NAME ="dangkang";
+    public static final String SYSTEM_CODE="";
+    public static final String SYSTEM_NAME ="";
 
     public static final String ERROR_CODE_UNHANDLE_EXCEPTION ="U001";//为所有交易未处理的异常定义的错误码
 
@@ -39,17 +43,53 @@ public class AbstractResponse {
     public static final String RESULT_TYPE_FAILURE="F";
 
 
-    public AbstractResponse buildSuccess(String serviceCode, String serviceDescription){
+    public AbstractResponse buildSuccess(String serviceCode, String serviceName){
         this.resultType=RESULT_TYPE_SUCCESS;
         this.resultCode=new StringBuffer().append(SYSTEM_CODE)
                                           .append(serviceCode)
                                           .append(EXECUTE_SUCCESS_CODE)
                                           .toString();
         this.resultDescription=new StringBuffer().append(SYSTEM_NAME)
-                                                 .append(serviceDescription)
+                                                 .append(serviceName)
                                                  .append(EXECUTE_SUCCESS_MESSAGE)
                                                  .toString();
         return this;
+    }
+
+    public AbstractResponse buildSuccess(Optional<Method > callMethod){
+        Method method=callMethod.get();
+        String serviceCode=this.getServiceCode(method);
+        String serviceName=this.getServiceName(method);
+        this.resultType=RESULT_TYPE_SUCCESS;
+        this.resultCode=new StringBuffer().append(SYSTEM_CODE)
+                .append(serviceCode)
+                .append(EXECUTE_SUCCESS_CODE)
+                .toString();
+        this.resultDescription=new StringBuffer().append(SYSTEM_NAME)
+                .append(serviceName)
+                .append(EXECUTE_SUCCESS_MESSAGE)
+                .toString();
+        return this;
+    }
+
+    private String getServiceCode(Method method){
+        if(method==null)return "";
+        String serviceCode = "";
+        ServiceDesc serviceDesc = method.getAnnotation(ServiceDesc.class);
+        if(serviceDesc != null){
+            serviceCode = serviceDesc.ServiceCode();
+        }
+        return serviceCode;
+    }
+
+    private String getServiceName(Method method){
+        if(method==null)return "";
+        String serviceName = "";
+        ServiceDesc serviceDesc = method.getAnnotation(ServiceDesc.class);
+        if(serviceDesc != null){
+            serviceName= serviceDesc.ServiceName();
+        }
+        return serviceName;
     }
 
     public AbstractResponse buildFailure(String serviceCode, String serviceDescription, String errorCode, String errorMessage){
