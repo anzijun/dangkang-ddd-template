@@ -2,7 +2,7 @@ package com.dangkang.examplecontext.infrastructure.repository;
 
 import com.dangkang.examplecontext.infrastructure.repository.dataobject.DomainObjectDO;
 import com.dangkang.examplecontext.infrastructure.repository.mapper.DomainObjectMapper;
-import com.dangkang.shclearinghouse.client.dto.response.ExampleQueryResultDTO;
+import com.dangkang.examplecontext.client.dto.response.ExampleQueryResultDTO;
 import com.dangkang.examplecontext.domain.model.DomainObject;
 import com.dangkang.examplecontext.domain.repository.ExampleAggregateRootRepository;
 import com.dangkang.exception.DangKangAppException;

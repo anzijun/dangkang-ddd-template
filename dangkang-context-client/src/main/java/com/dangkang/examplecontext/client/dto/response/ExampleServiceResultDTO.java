@@ -1,4 +1,4 @@
-package com.dangkang.shclearinghouse.client.dto.response;
+package com.dangkang.examplecontext.client.dto.response;
 
 /**
  *

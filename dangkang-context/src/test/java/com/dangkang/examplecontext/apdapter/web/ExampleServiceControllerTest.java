@@ -2,7 +2,7 @@ package com.dangkang.examplecontext.apdapter.web;
 
 
 import com.dangkang.examplecontext.adapter.web.ExampleServiceController;
-import com.dangkang.shclearinghouse.client.dto.request.ExampleServiceRequestDTO;
+import com.dangkang.examplecontext.client.dto.request.ExampleServiceRequestDTO;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

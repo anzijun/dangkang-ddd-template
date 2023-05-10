@@ -1,8 +1,8 @@
-package com.dangkang.shclearinghouse.client.api;
+package com.dangkang.examplecontext.client.api;
 
 import com.dangkang.application.dto.response.Response;
-import com.dangkang.shclearinghouse.client.dto.request.ExampleServiceRequestDTO;
-import com.dangkang.shclearinghouse.client.dto.response.ExampleServiceResultDTO;
+import com.dangkang.examplecontext.client.dto.request.ExampleServiceRequestDTO;
+import com.dangkang.examplecontext.client.dto.response.ExampleServiceResultDTO;
 
 /**
  * 面向客户端调用，client sdk

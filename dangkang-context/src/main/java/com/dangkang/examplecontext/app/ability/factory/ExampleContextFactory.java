@@ -1,6 +1,6 @@
 package com.dangkang.examplecontext.app.ability.factory;
 
-import com.dangkang.shclearinghouse.client.dto.request.ExampleServiceRequestDTO;
+import com.dangkang.examplecontext.client.dto.request.ExampleServiceRequestDTO;
 import com.dangkang.examplecontext.domain.model.DomainObject;
 import org.springframework.stereotype.Component;
 /*

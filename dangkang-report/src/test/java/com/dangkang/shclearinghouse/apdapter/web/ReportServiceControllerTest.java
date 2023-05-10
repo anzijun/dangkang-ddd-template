@@ -2,7 +2,6 @@ package com.dangkang.shclearinghouse.apdapter.web;
 
 
 import com.dangkang.shclearinghouse.adapter.web.ReportServiceController;
-import com.dangkang.shclearinghouse.client.dto.request.ExampleServiceRequestDTO;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

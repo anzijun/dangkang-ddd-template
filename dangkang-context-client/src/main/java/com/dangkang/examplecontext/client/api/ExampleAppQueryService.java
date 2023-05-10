@@ -1,8 +1,8 @@
-package com.dangkang.shclearinghouse.client.api;
+package com.dangkang.examplecontext.client.api;
 
 import com.dangkang.application.dto.response.MultipleResponse;
-import com.dangkang.shclearinghouse.client.dto.request.ExampleQueryRequestDTO;
-import com.dangkang.shclearinghouse.client.dto.response.ExampleQueryResultDTO;
+import com.dangkang.examplecontext.client.dto.request.ExampleQueryRequestDTO;
+import com.dangkang.examplecontext.client.dto.response.ExampleQueryResultDTO;
 
 /**
  * @date 2023/1/10 18:02

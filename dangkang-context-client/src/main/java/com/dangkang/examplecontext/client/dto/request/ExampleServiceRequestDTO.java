@@ -1,4 +1,4 @@
-package com.dangkang.shclearinghouse.client.dto.request;
+package com.dangkang.examplecontext.client.dto.request;
 
 import com.baidu.unbiz.fluentvalidator.annotation.FluentValidate;
 import com.dangkang.application.dto.request.AbstractRequest;

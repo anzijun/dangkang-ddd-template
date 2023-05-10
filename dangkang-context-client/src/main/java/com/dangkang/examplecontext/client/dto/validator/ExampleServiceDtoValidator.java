@@ -1,9 +1,9 @@
-package com.dangkang.shclearinghouse.client.dto.validator;
+package com.dangkang.examplecontext.client.dto.validator;
 
 import com.baidu.unbiz.fluentvalidator.Validator;
 import com.baidu.unbiz.fluentvalidator.ValidatorContext;
 import com.baidu.unbiz.fluentvalidator.ValidatorHandler;
-import com.dangkang.shclearinghouse.client.dto.request.ExampleServiceRequestDTO;
+import com.dangkang.examplecontext.client.dto.request.ExampleServiceRequestDTO;
 
 /**
  * 入参校验器示例

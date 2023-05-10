@@ -2,12 +2,12 @@ package com.dangkang.examplecontext.adapter.web;
 
 import com.dangkang.application.dto.response.MultipleResponse;
 import com.dangkang.application.dto.response.Response;
-import com.dangkang.shclearinghouse.client.api.ExampleAppQueryService;
-import com.dangkang.shclearinghouse.client.api.ExampleAppService;
-import com.dangkang.shclearinghouse.client.dto.request.ExampleQueryRequestDTO;
-import com.dangkang.shclearinghouse.client.dto.request.ExampleServiceRequestDTO;
-import com.dangkang.shclearinghouse.client.dto.response.ExampleServiceResultDTO;
-import com.dangkang.shclearinghouse.client.dto.response.ExampleQueryResultDTO;
+import com.dangkang.examplecontext.client.api.ExampleAppQueryService;
+import com.dangkang.examplecontext.client.api.ExampleAppService;
+import com.dangkang.examplecontext.client.dto.request.ExampleQueryRequestDTO;
+import com.dangkang.examplecontext.client.dto.request.ExampleServiceRequestDTO;
+import com.dangkang.examplecontext.client.dto.response.ExampleServiceResultDTO;
+import com.dangkang.examplecontext.client.dto.response.ExampleQueryResultDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
